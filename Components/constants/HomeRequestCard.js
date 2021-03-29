@@ -35,13 +35,14 @@ class HomeRequestCard extends Component{
                     <Icon name="times-circle" solid={true} size={25} color={Colors.textColor}/>
                 </TouchableOpacity>
                     </View>
-                    <View style={{flexDirection:"row",justifyContent:'space-between',marginVertical:10}}>
+                    <View style={{flexDirection:"row",justifyContent:'flex-start',marginVertical:10}}>
+                    <TouchableOpacity style={{borderWidth:1,borderRadius:50,backgroundColor:Colors.textColor,marginHorizontal:5}}>
+                    <Text style={{fontFamily:'Roboto' ,color:Colors.cardBg,paddingHorizontal:20,paddingVertical:5}}>Accept </Text>
+                </TouchableOpacity>
                     <TouchableOpacity style={{borderWidth:1,borderRadius:50,backgroundColor:Colors.red,marginHorizontal:5}}>
                     <Text style={{fontFamily:'Roboto' ,color:Colors.textColor,paddingHorizontal:20,paddingVertical:5}}>Reject </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{borderWidth:1,borderRadius:50,backgroundColor:Colors.textColor,marginHorizontal:5}}>
-                    <Text style={{fontFamily:'Roboto' ,color:Colors.cardBg,paddingHorizontal:20,paddingVertical:5}}>Accept </Text>
-                </TouchableOpacity>
+
                     </View>
                 </View>
 

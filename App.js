@@ -15,7 +15,8 @@ import Group from "./Components/Group Tab/Group"
 import Book from "./Components/Book Tab/Book"
 import Profile from "./Components/Profile Tab/Profile"
 
-
+import PooRequest from "./Components/Pool Tab/PoolRequest"
+import PoolRequest from './Components/Pool Tab/PoolRequest';
 const Tab = createBottomTabNavigator();
 const StackNavigator = createStackNavigator();
 
@@ -98,6 +99,11 @@ export default function App() {
           <StackNavigator.Screen
             name="App"
             children={()=>createTabs("Home")}
+            options={{headerShown: false}}
+          />
+          <StackNavigator.Screen
+            name="PoolRequest"
+            component={PoolRequest}
             options={{headerShown: false}}
           />
       </StackNavigator.Navigator>

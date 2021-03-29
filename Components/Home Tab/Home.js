@@ -1,10 +1,11 @@
 import React ,{Component} from 'react';
-import { StyleSheet, Text, View,StatusBar ,ScrollView } from 'react-native';
+import { StyleSheet, Text, View,StatusBar ,ScrollView, TouchableOpactiy } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import Colors from "../constants/colors"
 import UpcomingRideCard from "../constants/UpcomingRideCard"
 import HomeRequestCard from "../constants/HomeRequestCard"
 import Icon from "react-native-vector-icons/FontAwesome5"
+import { TouchableOpacity } from 'react-native-gesture-handler';
 class Home extends Component{
     constructor(props)
     {
@@ -44,9 +45,10 @@ class Home extends Component{
 
                 <Text style={{color:Colors.textColor}}> SOS</Text>
               </ActionButton.Item>
-              <ActionButton.Item buttonColor={Colors.tabBg} onPress={() => console.log("notes tapped!")}>
-
+              <ActionButton.Item  buttonColor={Colors.tabBg} onPress={() => console.log("notes tapped!")}>
+          <TouchableOpacity onPress={()=>{this.props.navigation.push("PoolRequest")}} >
           <Text style={{color:Colors.textColor,fontSize:12,textAlign:'center'}}> Pool Request</Text>
+          </TouchableOpacity>
               </ActionButton.Item>
 
 

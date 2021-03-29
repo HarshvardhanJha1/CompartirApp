@@ -1,19 +1,47 @@
 import React ,{Component} from 'react';
 import { StyleSheet, Text, View,StatusBar,TextInput,FlatList } from 'react-native';
 import Colors from "../constants/colors"
-
+import PoolCard from "./PoolCard"
 const DATA = [
     {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
+      id: '1',
+      name:'Shaurya',
+      date:"12/03/2021",
+      pickup:"BITS Pilani",
+      drop:'Airport',
+      members:'3'
     },
     {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-    },
+      id: '2',
+      name:'Depak',
+      date:"13/03/2021",
+      pickup:"Airport",
+      drop:'BITS',
+      members:'2'
+    },    
     {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
+      id: '3',
+      name:'Sanath',
+      date:"12/03/2021",
+      pickup:"BITS Pilani",
+      drop:'Golconda',
+      members:'1'
+    },    
+    {
+      id: '4',
+      name:'John',
+      date:"14/03/2021",
+      pickup:"BITS Pilani",
+      drop:'Secundar',
+      members:'3'
+    },    
+    {
+      id: '5',
+      name:'Lorem',
+      date:"15/03/2021",
+      pickup:"BITS Pilani",
+      drop:'Theater',
+      members:'3'
     },
   ];
 class PoolHome extends Component{
@@ -30,10 +58,11 @@ class PoolHome extends Component{
         return(
             <View style={styles.container}> 
       <FlatList
-        data={DATA}
+        data={this.props.data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-        contentContainerStyle={{backgroundColor:'red',height:'100%'}}
+      numColumns={2}
+        contentContainerStyle={{}}
       />
 
             </View>
@@ -42,16 +71,12 @@ class PoolHome extends Component{
 
 }
 const renderItem = ({ item }) => (
-    <Item title={item.title} />
+    <PoolCard item={item} />
   );
-  const Item = ({ title }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
+
 const styles = StyleSheet.create({
   container: {
-    height:'100%',
+
     backgroundColor: Colors.bgColor,
     alignItems: 'center',
   },

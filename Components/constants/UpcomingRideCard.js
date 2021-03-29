@@ -51,14 +51,15 @@ class UpcomingRideCard extends Component{
                     </Text>
                     </View>
                 </View>
-                <View style={{flexDirection:'row',marginBottom:10,justifyContent:'space-around'}}>
-                <TouchableOpacity style={{borderWidth:1,borderRadius:50,borderColor:Colors.textColor}}>
-                    <Text style={{fontFamily:'Roboto' ,color:Colors.textColor,paddingHorizontal:20,paddingVertical:5}}>Chat </Text>
+                <View style={{flexDirection:'row',marginBottom:10,justifyContent:'space-between'}}>
+              <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
+                <TouchableOpacity style={{borderWidth:1,borderRadius:50,borderColor:Colors.textColor,marginHorizontal:5}}>
+                    <Text style={{fontFamily:'Roboto' ,color:Colors.textColor,paddingHorizontal:20,paddingVertical:5,}}>Chat </Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{borderWidth:1,borderRadius:50,borderColor:Colors.red}}>
+                <TouchableOpacity style={{borderWidth:1,borderRadius:50,borderColor:Colors.red,marginHorizontal:5}}>
                     <Text style={{fontFamily:'Roboto' ,color:Colors.red,paddingHorizontal:20,paddingVertical:5}}>Cancel </Text>
                 </TouchableOpacity>
-
+                </View>
                 <Text style={{fontFamily:'Roboto' ,color:Colors.statusBlue,paddingHorizontal:10,paddingVertical:5}}>On Sunday </Text>
 
                 </View>

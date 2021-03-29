@@ -1,6 +1,8 @@
 import React ,{Component} from 'react';
-import { StyleSheet, Text, View,StatusBar,TextInput } from 'react-native';
+import { StyleSheet, Text, View,StatusBar,TextInput,FlatList } from 'react-native';
 import Colors from "../constants/colors"
+import PoolCard from "./PoolCard"
+
 class SearchRequests extends Component{
     constructor(props)
     {
@@ -14,16 +16,26 @@ class SearchRequests extends Component{
     {
         return(
             <View style={styles.container}> 
+      <FlatList
+        data={this.props.data}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      numColumns={2}
+        contentContainerStyle={{}}
+      />
 
             </View>
         )
     }
 
 }
+const renderItem = ({ item }) => (
+    <PoolCard item={item} />
+  );
 
 const styles = StyleSheet.create({
   container: {
-    height:'100%',
+
     backgroundColor: Colors.bgColor,
     alignItems: 'center',
   },
