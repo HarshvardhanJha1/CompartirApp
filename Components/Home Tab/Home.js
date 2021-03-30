@@ -1,5 +1,5 @@
 import React ,{Component} from 'react';
-import { StyleSheet, Text, View,StatusBar ,ScrollView, TouchableOpactiy } from 'react-native';
+import { StyleSheet, Text, View,StatusBar ,ScrollView, TouchableOpactiy ,LogBox} from 'react-native';
 import ActionButton from 'react-native-action-button';
 import Colors from "../constants/colors"
 import UpcomingRideCard from "../constants/UpcomingRideCard"
@@ -14,7 +14,9 @@ class Home extends Component{
 
         }
     }
-
+    componentDidMount() {
+      LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
+  }
     render()
     {
         return(
