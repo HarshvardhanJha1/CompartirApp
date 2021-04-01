@@ -1,10 +1,10 @@
 import React ,{Component} from 'react';
 import { StyleSheet, Text, View,StatusBar ,ScrollView, TouchableOpactiy ,LogBox} from 'react-native';
 import ActionButton from 'react-native-action-button';
-import Colors from "../constants/colors"
-import UpcomingRideCard from "../constants/UpcomingRideCard"
-import HomeRequestCard from "../constants/HomeRequestCard"
-import Icon from "react-native-vector-icons/FontAwesome5"
+import Colors from "../constants/colors";
+import UpcomingRideCard from "../constants/UpcomingRideCard";
+import HomeRequestCard from "../constants/HomeRequestCard";
+import Icon from "react-native-vector-icons/FontAwesome5";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 class Home extends Component{
     constructor(props)
