@@ -70,7 +70,7 @@ class GroupCard extends Component{
                 </View>
                 <View style={{flexDirection:'row',marginBottom:10,justifyContent:'space-between'}}>
               <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
-                <TouchableOpacity style={{borderWidth:1,borderRadius:50,borderColor:Colors.textColor,marginHorizontal:5}}>
+                <TouchableOpacity onPress={()=>{this.props.navigation.push("GroupChat",{id:this.props.tripNumber})}} style={{borderWidth:1,borderRadius:50,borderColor:Colors.textColor,marginHorizontal:5}}>
                     <Text style={{fontFamily:'Roboto' ,color:Colors.textColor,paddingHorizontal:20,paddingVertical:5,}}>Chat </Text>
                 </TouchableOpacity>
                 {/* <TouchableOpacity style={{borderWidth:1,borderRadius:50,borderColor:Colors.red,marginHorizontal:5}}>
