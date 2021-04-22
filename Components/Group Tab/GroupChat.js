@@ -27,7 +27,7 @@ class GroupChat extends Component{
     render()
     {
         return(
-            <View style={styles.container}>
+            <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={-230} style={styles.container} contentContainerStyle={styles.container2}>
             <StatusBar barStyle="default"/>
               <View style={{flexDirection:'row', justifyContent:'flex-start'}}>
                 <View style={{width:"27%"}}>
@@ -110,9 +110,9 @@ class GroupChat extends Component{
                     value={this.state.messageText}
                     placeholderTextColor={Colors.inactiveGray}
                     style={{fontSize:16, padcolor:Colors.inactiveGray, height:"100%", width:'85%',backgroundColor:"white",fontFamily:'Roboto',borderRadius:50}}/>
-                </View>
+         </View>
             
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 
@@ -125,6 +125,12 @@ container: {
     color:"white",
     height:'100%'
     },
+    container2: {
+        backgroundColor: Colors.bgColor,
+        justifyContent: 'flex-start',
+        color:"white",
+        height:'50%'
+        },
 subContainer:{
     width:'95%',
     alignSelf:'center',
