@@ -7,14 +7,15 @@ import {Svg, Path} from 'react-native-svg';
 import Colors from "../constants/colors"
 import SvgUri from "expo-svg-uri"
 class GroupChat extends Component{
-    data=[{ message:"Tomorrow 6pm Secunderabad?", selfMessage: false},
-    { message:"Ok, will wait near mess 1", selfMessage: true},
-    { message:"Alright then, I’ll meet you at mess 1", selfMessage: false},]
+    
     constructor(props)
     {
         super(props)
         this.state={
-            messageText:""
+            messageText:"",
+            data:[{ message:"Tomorrow 6pm Secunderabad?", selfMessage: false},
+            { message:"Ok, will wait near mess 1", selfMessage: true},
+            { message:"Alright then, I’ll meet you at mess 1", selfMessage: false},]
         }
     }
     componentDidMount() {
@@ -22,8 +23,18 @@ class GroupChat extends Component{
     }
     handleText=async (text)=>{
         await this.setState({messageText:text})
-     }
+    }
+    // let messageElement=[{message:this.state.messageText, selfMessage:true}]
+    // this.setState({ data: [...this.state.data, ...messageElement,()=>{
+    //     console.log("Data :",this.state.data);
+    //   });
 
+    handleSend=async()=>{
+        let messageElement=[{message:this.state.messageText, selfMessage:true}]
+        await this.setState({ data: [...this.state.data, ...messageElement]},()=>{
+            console.log("Data :",this.state.data);
+        });
+    }
     render()
     {
         return(
@@ -47,7 +58,7 @@ class GroupChat extends Component{
             <View style={{height:"87%"}}>
                 <ScrollView style={styles.subContainer}>
                     {
-                        this.data.map((it)=>{
+                        this.state.data.map((it)=>{
                             return(
                                 <View>
                                 {it.selfMessage== false?(
@@ -73,7 +84,7 @@ class GroupChat extends Component{
                                 </View>
                                 </View>):(<View style={[styles.item, styles.itemOut]}>
                         <View style={[styles.balloon, {backgroundColor: '#EF3651'}]}>
-                        <Text style={{paddingTop: 5, color: 'white'}}>Ok, will wait near mess 1</Text>
+                        <Text style={{paddingTop: 5, color: 'white'}}>{it.message}</Text>
                         <View
                         style={[
                             styles.arrowContainer,
@@ -105,11 +116,12 @@ class GroupChat extends Component{
             </View>
             <View style={{height:40, alignItems:'center'}}>
                     <TextInput 
-                    placeholder="Search"
+                    placeholder="Type message..."
+                    onSubmitEditing={this.handleSend}
                     onChangeText={this.handleText}
                     value={this.state.messageText}
                     placeholderTextColor={Colors.inactiveGray}
-                    style={{fontSize:16, padcolor:Colors.inactiveGray, height:"100%", width:'85%',backgroundColor:"white",fontFamily:'Roboto',borderRadius:50}}/>
+                    style={{fontSize:16, padcolor:Colors.inactiveGray, paddingHorizontal: 15, height:"100%", width:'85%',backgroundColor:"white",fontFamily:'Roboto',borderRadius:50}}/>
          </View>
             
             </KeyboardAvoidingView>
