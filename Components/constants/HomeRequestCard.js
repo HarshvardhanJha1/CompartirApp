@@ -15,10 +15,10 @@ class HomeRequestCard extends Component{
     {
         return(
             <View  style={styles.container}>
-                <View style={{width:'30%'}}>
+                <View style={{width:'20%'}}>
                <Image style={{height:80,width:80}} source={require("../../assets/profilepic.png")}/>
                 </View>
-                <View style={{marginHorizontal:10 ,flexDirection:'column',width:'65%'}}>
+                <View style={{marginHorizontal:10 ,flexDirection:'column',width:'70%'}}>
                 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
                     <View>
                     <Text style={{fontSize:16,fontFamily:'RobotoMedium',color:Colors.textColor}}>
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
     padding:10,
     marginVertical:5,
     flexDirection:'row',
-    justifyContent:"flex-start"
+    justifyContent:"center",
+    alignItems:'center'
 
   },
   

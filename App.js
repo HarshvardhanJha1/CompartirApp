@@ -19,6 +19,11 @@ import PooRequest from "./Components/Pool Tab/PoolRequest"
 import PoolRequest from './Components/Pool Tab/PoolRequest';
 import { ModalPortal } from 'react-native-modals';
 import GroupChat from "./Components/Group Tab/GroupChat"
+import TravelBuddies from "./Components/Profile Tab/TravelBuddies"
+import RideHistory from "./Components/Profile Tab/RideHistory"
+import RidePage from "./Components/Profile Tab/RidePage"
+import Feedback from "./Components/Profile Tab/Feedback"
+
 const Tab = createBottomTabNavigator();
 const StackNavigator = createStackNavigator();
 
@@ -111,6 +116,26 @@ export default function App() {
           <StackNavigator.Screen
             name="GroupChat"
             component={GroupChat}
+            options={{headerShown: false}}
+          />
+                    <StackNavigator.Screen
+            name="RideHistory"
+            component={RideHistory}
+            options={{headerShown: false}}
+          />
+                    <StackNavigator.Screen
+            name="RidePage"
+            component={RidePage}
+            options={{headerShown: false}}
+          />
+                    <StackNavigator.Screen
+            name="TravelBuddies"
+            component={TravelBuddies}
+            options={{headerShown: false}}
+          />
+                    <StackNavigator.Screen
+            name="Feedback"
+            component={Feedback}
             options={{headerShown: false}}
           />
       </StackNavigator.Navigator>

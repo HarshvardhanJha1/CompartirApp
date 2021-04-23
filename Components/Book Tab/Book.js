@@ -114,7 +114,7 @@ class Book extends Component{
 
                 <View style={{flexDirection:'row',justifyContent:'flex-start',alignItems:'center'}}>
                  <View style={{margin:10}}>
-                   <Icon name="map-marker-alt" color={Colors.red} size={30}/>
+                   <Icon name="map-marker-alt" color={Colors.statusGreen} size={30}/>
                  </View>
                    <View style={{flexDirection:'column'}}>
                     <Text style={{marginTop:5,fontFamily:"RobotoMedium",color:Colors.textColor,fontSize:14}}>
@@ -188,6 +188,7 @@ class Book extends Component{
         switch(this.state.currElement)
         {
             case 0:
+
                 return(
                     <ScrollView style={{height:'80%'}}>
                  {   this.state.data.map((item,index)=>{
@@ -196,6 +197,8 @@ class Book extends Component{
                     </ScrollView>
                 )
             case 1:
+
+
                     return(
                         <ScrollView style={{height:'80%'}}>
                     {   this.state.data.map((item,index)=>{
@@ -204,6 +207,8 @@ class Book extends Component{
                         </ScrollView>
                     )
             case 2:
+
+
                 return(
                     <ScrollView style={{height:'80%'}}>
                 {   this.state.data.map((item,index)=>{
@@ -212,6 +217,8 @@ class Book extends Component{
                     </ScrollView>
                 )
             case 3:
+
+
                 return(
                     <ScrollView style={{height:'80%'}}>
                         {this.CompareCard()}
@@ -219,6 +226,29 @@ class Book extends Component{
                 )
                 
             }
+    }
+    setTitle=()=>{
+        switch(this.state.currElement)
+        {
+            case 0:
+                this.setState({currTitle:"Select Group"})
+                    break
+            case 1:
+                this.setState({currTitle:"Pickup Location"})
+                    break
+            case 2:
+                this.setState({currTitle:"Drop Off Location"})
+                    break
+            case 3:
+                this.setState({currTitle:"Compare Rides"})
+                    break
+                
+            }
+    }
+    handleBack=async ()=>{
+       await this.setState({currElement:this.state.currElement-1})
+       await this.setTitle()
+       await this.renderItem()
     }
     render()
     {
@@ -255,14 +285,6 @@ class Book extends Component{
           onTouchOutside={() => this.setState({ modal: false })}
                     height={400}
           onSwipeOut={() => this.setState({ modal: false })}
-          modalTitle={
-            <ModalTitle
-              title={this.state.currTitle}
-              hasTitleBar
-              style={{backgroundColor:Colors.cardBg,color:Colors.textColor,borderBottomWidth:0}}
-              textStyle={{color:Colors.textColor}}
-            />
-          }
         >
           <ModalContent
             style={{
@@ -270,10 +292,15 @@ class Book extends Component{
               backgroundColor: Colors.cardBg,
             }}
           >
-
+            <View style={{marginBottom:20,flexDirection:'row',alignItems:'center'}}>
+               {this.state.currElement!=0? <TouchableOpacity onPress={()=>{this.handleBack()}}>
+                <Icon style={{alignSelf:'flex-start'}} name="chevron-left" size={20}color={"white"}  />
+                </TouchableOpacity>:null}
+                <Text style={{width:this.state.currElement!=0?"90%":"100%",backgroundColor:Colors.cardBg,color:Colors.textColor,borderBottomWidth:0,alignSelf:'center',fontSize:25,textAlign:"center"}}> {this.state.currTitle}</Text>
+            </View>
             <View style={{height:40,flexDirection:'row',borderRadius:100,alignItems:'center',backgroundColor:'white',justifyContent:'flex-start',paddingHorizontal:10,marginBottom:10}}>
 
-                <Icon name="search" size={20} color={Colors.inactiveGray} />
+                <Icon name="search" size={30} color={Colors.inactiveGray} />
 
             <TextInput 
             placeholder="Search"
